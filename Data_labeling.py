@@ -1,3 +1,7 @@
+'''
+The code is inspired from the work of Dr.Alwin Poulose on Facial Emotion Recognition
+'''
+
 from PIL import Image
 import numpy as np
 import sys
