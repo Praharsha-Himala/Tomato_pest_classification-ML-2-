@@ -10,7 +10,7 @@ from collections import defaultdict
 import matplotlib.pyplot as plt
 from PIL import Image
 import numpy as np
-import seaborn as sns
+import seaborn as snsrff
 import pandas as pd
 #################################################################################################################
 # 1. counting number of images in each class
