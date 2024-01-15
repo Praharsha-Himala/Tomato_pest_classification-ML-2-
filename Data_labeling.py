@@ -33,9 +33,9 @@ def createFileList(myDir, formats=('.jpg')):
 # load the original image
 myFileList = createFileList(base_directory + folder_name)
 
-if (folder_name == "Training" or folder_name == "PrivateTest"):
+if (folder_name == 'images'):
     with open(base_directory + file_name, "a") as f:
-        f.write(f'emotion,pixels,Usage')
+        f.write(f'pest,pixels')
         f.write("\n")
 count = 0
 for file in myFileList:
@@ -62,6 +62,6 @@ for file in myFileList:
     # value = str(value).lstrip('[').rstrip(']')
     with open(base_directory + file_name, "a") as f:
         f.write(
-            f'{category},{" ".join([str(pixel) for pixel in value.reshape(width * height)])},{folder_name}')
+            f'{category},{" ".join([str(pixel) for pixel in value.reshape(width * height)])}')
         f.write("\n")
 print(f'number of pixalized count: {count}')
