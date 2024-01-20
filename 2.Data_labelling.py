@@ -9,6 +9,7 @@ import os
 import csv
 import pandas as pd
 import matplotlib.pyplot as plt
+from sklearn.preprocessing import LabelEncoder
 base_directory = r"D:\Users\HARSHU\Downloads\A database of eight common tomato pest images\A database of eight common tomato pest images\Tomato pest image enhancement\Tomato pest image enhancement//"
 
 folder_name = "images"
@@ -72,15 +73,19 @@ csv_file_path = r"D:\Users\HARSHU\Downloads\A database of eight common tomato pe
 
 # Load the CSV file into a Pandas DataFrame
 df = pd.read_csv(csv_file_path)
-# # print(df.columns)
-# Replace labels in the DataFrame
-label_mapping = {'BA': 0, 'HA': 1, 'SE': 2, 'MP': 3, 'TP': 4, 'SL': 5, 'ZC': 6, 'TU': 7}
-df['pest'] = df['pest'].replace(label_mapping)
-#
+label_encoder = LabelEncoder()
+df['pest'] = label_encoder.fit_transform(df['pest'])
+
 # print(df)
 # Display the first few rows of the DataFrame after replacing labels
 print(df.head())
-# #
+#
+# Assuming 'df' is your DataFrame with updated labels
+csv_file_path_updated = r"D:\Users\HARSHU\Downloads\A database of eight common tomato pest images\A database of eight common tomato pest images\Tomato pest image enhancement\Tomato pest image enhancement\images_data_updated.csv"
+
+# Save the DataFrame to a new CSV file
+df.to_csv(csv_file_path_updated, index=False)
+
 # Extract label and pixel values for a specific image (change the index as needed)
 index_to_load = 0
 label = df.loc[index_to_load, 'pest']
@@ -94,6 +99,6 @@ image_size = int(np.sqrt(len(pixels)))
 image_array = pixels.reshape((image_size, image_size))
 
 # Display the updated label and plot the image
-print(f"Updated Label: {label}")
-plt.imshow(image_array, cmap='gray')
+plt.imshow(image_array, cmap='gray', aspect='auto')
+plt.title(f"Updated Label: {label}")
 plt.show()
