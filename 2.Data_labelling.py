@@ -8,10 +8,11 @@ import sys
 import os
 import csv
 import pandas as pd
+import matplotlib.pyplot as plt
 base_directory = r"D:\Users\HARSHU\Downloads\A database of eight common tomato pest images\A database of eight common tomato pest images\Tomato pest image enhancement\Tomato pest image enhancement//"
 
 folder_name = "images"
-file_name = "images_data.csv"
+file_name = "images_data1.csv"
 # cifar_labels = ['airplane', 'automobile', 'bird' ,'cat' ,'deer' ,'dog' ,'frog' ,'horse' ,'ship' ,'truck']
 label_names = [] #change this into our 10 class names
 # label_names = cifar_labels
@@ -67,7 +68,7 @@ for file in myFileList:
 print(f'number of pixalized count: {count}')
 #########################################################################################
 # labels are changed to numeric type
-csv_file_path = r"D:\Users\HARSHU\Downloads\A database of eight common tomato pest images\A database of eight common tomato pest images\Tomato pest image enhancement\Tomato pest image enhancement\images_data.csv"
+csv_file_path = r"D:\Users\HARSHU\Downloads\A database of eight common tomato pest images\A database of eight common tomato pest images\Tomato pest image enhancement\Tomato pest image enhancement\images_data1.csv"
 
 # Load the CSV file into a Pandas DataFrame
 df = pd.read_csv(csv_file_path)
@@ -80,19 +81,19 @@ df['pest'] = df['pest'].replace(label_mapping)
 # Display the first few rows of the DataFrame after replacing labels
 print(df.head())
 # #
-# # Extract label and pixel values for a specific image (change the index as needed)
-# index_to_load = 0
-# label = df.loc[index_to_load, 'pest']
-# pixels_str = df.loc[index_to_load, 'pixels']
-#
-# # Convert the string representation of pixels to a list of integers
-# pixels = np.array(list(map(int, pixels_str.split())))
-#
-# # Reshape the 1D array back to a 2D array (assuming a square image)
-# image_size = int(np.sqrt(len(pixels)))
-# image_array = pixels.reshape((image_size, image_size))
+# Extract label and pixel values for a specific image (change the index as needed)
+index_to_load = 0
+label = df.loc[index_to_load, 'pest']
+pixels_str = df.loc[index_to_load, 'pixels']
 
-# # # Display the updated label and plot the image
-# # print(f"Updated Label: {label}")
-# # plt.imshow(image_array, cmap='gray')
-# # plt.show()
+# Convert the string representation of pixels to a list of integers
+pixels = np.array(list(map(int, pixels_str.split())))
+
+# Reshape the 1D array back to a 2D array (assuming a square image)
+image_size = int(np.sqrt(len(pixels)))
+image_array = pixels.reshape((image_size, image_size))
+
+# Display the updated label and plot the image
+print(f"Updated Label: {label}")
+plt.imshow(image_array, cmap='gray')
+plt.show()
