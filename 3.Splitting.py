@@ -3,32 +3,32 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 # Specify the path to your CSV file
-# csv_file_path = r"D:\Users\HARSHU\Downloads\A database of eight common tomato pest images\A database of eight common tomato pest images\Tomato pest image enhancement\Tomato pest image enhancement\images_data_updated.csv"
-#
-# # Load the CSV file into a Pandas DataFrame
-# df = pd.read_csv(csv_file_path)
-# # #########################################################################
-# # Splitting the data into test and train (80:20)
-# print(df.head())
-# # Convert the 'pixels' column to a NumPy array of integers
-# # Assuming 'df' is your DataFrame
-# df['pixels'] = df['pixels'].apply(lambda x: np.fromstring(x, dtype=int, sep=' '))
-#
-# # Find the maximum length of 'pixels' and pad shorter arrays with zeros
-# max_length = df['pixels'].apply(len).max()
-# df['pixels'] = df['pixels'].apply(lambda x: np.pad(x, (0, max_length - len(x))))
-#
-# # Create a 2D NumPy array from the 'pixels' column
-# X = np.vstack(df['pixels'].to_numpy())
-# y = df['pest'].values
-#
-# # Split the data into training and testing sets
-# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-# # Save X_train, X_test, y_train, y_test as .npy files
-# np.save("D:\Projects\Tomato_pest_classification/X_train.npy", X_train)
-# np.save("D:\Projects\Tomato_pest_classification/X_test.npy", X_test)
-# np.save("D:\Projects\Tomato_pest_classification/y_train.npy", y_train)
-# np.save("D:\Projects\Tomato_pest_classification/y_test.npy", y_test)
+csv_file_path = r"csv_file_path\images_data_updated.csv"
+
+# Load the CSV file into a Pandas DataFrame
+df = pd.read_csv(csv_file_path)
+# #########################################################################
+# Splitting the data into test and train (80:20)
+print(df.head())
+# Convert the 'pixels' column to a NumPy array of integers
+# Assuming 'df' is your DataFrame
+df['pixels'] = df['pixels'].apply(lambda x: np.fromstring(x, dtype=int, sep=' '))
+
+# Find the maximum length of 'pixels' and pad shorter arrays with zeros
+max_length = df['pixels'].apply(len).max()
+df['pixels'] = df['pixels'].apply(lambda x: np.pad(x, (0, max_length - len(x))))
+
+# Create a 2D NumPy array from the 'pixels' column
+X = np.vstack(df['pixels'].to_numpy())
+y = df['pest'].values
+
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# Save X_train, X_test, y_train, y_test as .npy files
+np.save("D:\Projects\Tomato_pest_classification/X_train.npy", X_train)
+np.save("D:\Projects\Tomato_pest_classification/X_test.npy", X_test)
+np.save("D:\Projects\Tomato_pest_classification/y_train.npy", y_train)
+np.save("D:\Projects\Tomato_pest_classification/y_test.npy", y_test)
 
 # # loading the numpy files
 xtrain = np.load("D:\Projects\Tomato_pest_classification/X_train.npy")

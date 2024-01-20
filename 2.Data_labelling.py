@@ -10,7 +10,7 @@ import csv
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import LabelEncoder
-base_directory = r"D:\Users\HARSHU\Downloads\A database of eight common tomato pest images\A database of eight common tomato pest images\Tomato pest image enhancement\Tomato pest image enhancement//"
+base_directory = r"folder_path//"
 
 folder_name = "images"
 file_name = "images_data1.csv"
@@ -69,7 +69,7 @@ for file in myFileList:
 print(f'number of pixalized count: {count}')
 #########################################################################################
 # labels are changed to numeric type
-csv_file_path = r"D:\Users\HARSHU\Downloads\A database of eight common tomato pest images\A database of eight common tomato pest images\Tomato pest image enhancement\Tomato pest image enhancement\images_data1.csv"
+csv_file_path = r"csv_file_path\images_data1.csv"
 
 # Load the CSV file into a Pandas DataFrame
 df = pd.read_csv(csv_file_path)
@@ -81,7 +81,7 @@ df['pest'] = label_encoder.fit_transform(df['pest'])
 print(df.head())
 #
 # Assuming 'df' is your DataFrame with updated labels
-csv_file_path_updated = r"D:\Users\HARSHU\Downloads\A database of eight common tomato pest images\A database of eight common tomato pest images\Tomato pest image enhancement\Tomato pest image enhancement\images_data_updated.csv"
+csv_file_path_updated = r"updated_file_path\images_data_updated.csv"
 
 # Save the DataFrame to a new CSV file
 df.to_csv(csv_file_path_updated, index=False)
