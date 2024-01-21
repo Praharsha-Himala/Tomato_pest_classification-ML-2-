@@ -28,10 +28,10 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import label_binarize
 
 # Loading split data
-X_train = np.load('/content/drive/MyDrive/tomato_pest/X_train.npy')
-y_train = np.load('/content/drive/MyDrive/tomato_pest/y_train.npy')
-X_test = np.load('/content/drive/MyDrive/tomato_pest/X_test.npy')
-y_test = np.load('/content/drive/MyDrive/tomato_pest/y_test.npy')
+X_train = np.load('/path/of/file')
+y_train = np.load('/path/of/file')
+X_test = np.load('/path/of/file')
+y_test = np.load('/path/of/file')
 
 
 # Creating custom classifier pipeline and calling user declared models
