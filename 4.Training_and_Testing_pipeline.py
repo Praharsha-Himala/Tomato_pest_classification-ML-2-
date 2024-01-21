@@ -39,7 +39,7 @@ class CustomClassifierPipeline:
     def __init__(self, classifier: str = 'Logistic Regression'):
         self.classifier = classifier
         self.models = {
-            'Logistic Regression': LogisticRegression(),
+            'Logistic Regression': LogisticRegression(penalty=None, max_iter=1000),
             'Random Forest': RandomForestClassifier(),
             'Naive Bayes': GaussianNB(),
             'Support Vector Machine': SVC(probability=True),
